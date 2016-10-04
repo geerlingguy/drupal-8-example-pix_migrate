@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Pix Migrate install file.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function pix_migrate_uninstall() {
+  // Delete this module's migrations.
+  $migrations = [
+    'pix_file',
+    'pix_gallery',
+    'pix_image',
+    'pix_name',
+    'pix_user',
+  ];
+  foreach ($migrations as $migration) {
+    Drupal::configFactory()->getEditable('migrate_plus.migration.' . $migration)->delete();
+  }
+}

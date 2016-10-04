@@ -1,0 +1,6 @@
+id: pix
+label: Pix imports
+description: Migrations importing into the Drupal 8 Pix site
+dependencies:
+  module:
+    - pix_migrate

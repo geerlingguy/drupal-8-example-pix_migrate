@@ -1,0 +1,49 @@
+id: pix_gallery
+migration_group: pix
+migration_tags: {}
+label: 'Pix Gallery'
+
+source:
+  plugin: pix_gallery
+
+destination:
+  plugin: 'entity:node'
+
+process:
+  type:
+    plugin: default_value
+    default_value: gallery
+  title: title
+  uid:
+    -
+      plugin: migration
+      migration: pix_user
+      source: uid
+      no_stub: true
+    -
+      plugin: default_value
+      default_value: 1
+  sticky:
+    plugin: default_value
+    default_value: 0
+  status: status
+  'body/value': body
+  'body/summary': teaser
+  'body/format':
+    plugin: default_value
+    default_value: basic_html
+  field_images:
+    plugin: migration
+    migration: pix_image
+    source: images
+  created: created
+  changed: changed
+
+migration_dependencies:
+  required:
+    - pix_user
+    - pix_image
+
+dependencies:
+  module:
+    - pix_migrate

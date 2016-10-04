@@ -1,0 +1,30 @@
+id: pix_user
+migration_group: pix
+migration_tags: {}
+label: 'Pix User'
+
+source:
+  plugin: pix_user
+
+destination:
+  plugin: 'entity:user'
+
+process:
+  name: name
+  pass: pass
+  mail: mail
+  init: init
+  status: status
+  created: created
+  access: access
+  login: login
+  timezone: timezone_name
+  roles:
+    plugin: default_value
+    default_value: 1
+
+migration_dependencies: {}
+
+dependencies:
+  module:
+    - pix_migrate

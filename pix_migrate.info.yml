@@ -1,0 +1,8 @@
+name: Pix Migrate
+type: module
+description: 'Migrations for D6 to D8 media site upgrade.'
+package: custom
+version: '8.0'
+core: '8.x'
+dependencies:
+  - migrate_plus

@@ -1,0 +1,34 @@
+id: pix_file
+migration_group: pix
+migration_tags: {}
+label: 'Pix File'
+
+source:
+  plugin: pix_file
+
+destination:
+  plugin: 'entity:file'
+  source_base_path: https://www.example.com/
+  source_path_property: filepath
+  urlencode: true
+  destination_path_property: uri
+
+process:
+  fid: fid
+  filename: filename
+  uri: filepath
+  uid:
+    -
+      plugin: migration
+      migration: pix_user
+      source: uid
+      no_stub: true
+    -
+      plugin: default_value
+      default_value: 1
+
+migration_dependencies: {}
+
+dependencies:
+  module:
+    - pix_migrate

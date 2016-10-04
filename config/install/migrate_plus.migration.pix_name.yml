@@ -1,0 +1,25 @@
+id: pix_name
+migration_group: pix
+migration_tags: {}
+label: 'Pix Name'
+
+source:
+  plugin: pix_name
+
+destination:
+  plugin: 'entity:taxonomy_term'
+
+process:
+  type:
+    plugin: default_value
+    default_value: gallery
+  name: name
+  vid:
+    plugin: default_value
+    default_value: names
+
+migration_dependencies: {}
+
+dependencies:
+  module:
+    - pix_migrate
